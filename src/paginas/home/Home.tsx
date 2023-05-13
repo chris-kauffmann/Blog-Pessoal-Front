@@ -1,21 +1,68 @@
 import React from "react";
+import { Grid, Typography, Button } from "@material-ui/core";
+import { Box } from "@mui/material";
 import "./Home.css";
 
 /*function para criar o componente inicial home */
 function Home() {
   return (
     <>
-      <h1 className="titulo">Home</h1>
-      <p>
-        Mussum Ipsum, cacilds vidis litro abertis. Aenean aliquam molestie leo,
-        vitae iaculis nisl.Em pé sem cair, deitado sem dormir, sentado sem
-        cochilar e fazendo pose.Nullam volutpat risus nec leo commodo, ut
-        interdum diam laoreet. Sed non consequat odio.Mé faiz elementum
-        girarzis, nisi eros vermeio. In elementis mé pra quem é amistosis quis
-        leo.Per aumento de cachacis, eu reclamis.Quem num gosta di mé, boa
-        gentis num é.Delegadis gente finis, bibendum egestas augue arcu ut est.
-        Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.
-      </p>
+      <>
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          style={{ backgroundColor: "#3F51B5" }}
+        >
+          <Grid alignItems="center" item xs={6}>
+            <Box paddingX={20}>
+              <Typography
+                variant="h3"
+                gutterBottom
+                color="textPrimary"
+                component="h3"
+                align="center"
+                style={{ color: "white", fontWeight: "bold" }}
+              >
+                Seja bem vindo(a)!
+              </Typography>
+              <Typography
+                variant="h5"
+                gutterBottom
+                color="textPrimary"
+                component="h5"
+                align="center"
+                style={{ color: "white", fontWeight: "bold" }}
+              >
+                expresse aqui os seus pensamentos e opiniões!
+              </Typography>
+            </Box>
+            <Box display="flex" justifyContent="center">
+              <Box marginRight={1}></Box>
+              <Button
+                variant="outlined"
+                style={{
+                  borderColor: "white",
+                  backgroundColor: "#3F51B5",
+                  color: "white",
+                }}
+              >
+                Ver Postagens
+              </Button>
+            </Box>
+          </Grid>
+          <Grid item xs={6}>
+            <img
+              src="https://i.imgur.com/H88yIo2.png"
+              alt=""
+              width="500px"
+              height="500px"
+            />
+          </Grid>
+          <Grid xs={12} style={{ backgroundColor: "black" }}></Grid>
+        </Grid>
+      </>
     </>
   );
 }
