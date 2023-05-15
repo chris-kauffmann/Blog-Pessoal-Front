@@ -13,7 +13,7 @@ function Home() {
           direction="row"
           justifyContent="center"
           alignItems="center"
-          style={{ backgroundColor: "#3F51B5" }}
+          style={{ backgroundColor: "white" }}
         >
           <Grid alignItems="center" item xs={6}>
             <Box paddingX={20}>
@@ -23,7 +23,7 @@ function Home() {
                 color="textPrimary"
                 component="h3"
                 align="center"
-                style={{ color: "white", fontWeight: "bold" }}
+                style={{ color: "black", fontWeight: "bold" }}
               >
                 Seja bem vindo(a)!
               </Typography>
@@ -33,7 +33,7 @@ function Home() {
                 color="textPrimary"
                 component="h5"
                 align="center"
-                style={{ color: "white", fontWeight: "bold" }}
+                style={{ color: "black", fontWeight: "bold" }}
               >
                 expresse aqui os seus pensamentos e opiniões!
               </Typography>
@@ -41,10 +41,11 @@ function Home() {
             <Box display="flex" justifyContent="center">
               <Box marginRight={1}></Box>
               <Button
-                variant="outlined"
+                className="outlinedButton"
+                variant="contained"
                 style={{
                   borderColor: "white",
-                  backgroundColor: "#3F51B5",
+                  backgroundColor: "black",
                   color: "white",
                 }}
               >
@@ -52,12 +53,12 @@ function Home() {
               </Button>
             </Box>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={5} style={{ margin: "10px" }}>
             <img
-              src="https://i.imgur.com/H88yIo2.png"
+              src="https://media1.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif?cid=ecf05e47qn9dv5mhzhpp8shivts0noigxrw0r89xyn3tbe61&ep=v1_gifs_related&rid=giphy.gif&ct=g"
               alt=""
               width="500px"
-              height="500px"
+              height="400px"
             />
           </Grid>
           <Grid xs={12} style={{ backgroundColor: "black" }}></Grid>

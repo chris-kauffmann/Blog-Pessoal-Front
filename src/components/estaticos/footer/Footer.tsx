@@ -1,9 +1,7 @@
-import React from "react";
 import { Grid, Typography, Button } from "@material-ui/core";
 import { Box } from "@mui/material";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import FacebookIcon from "@material-ui/icons/Facebook";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 function Footer() {
   return (
@@ -32,20 +30,12 @@ function Footer() {
               </Typography>
             </Box>
             <Box display="flex" alignItems="center" justifyContent="center">
-              <a
-                href="https://www.facebook.com/generationbrasil"
-                target="_blank"
-              >
-                <FacebookIcon style={{ fontSize: 60, color: "white" }} />
+              <a href="https://github.com/chris-kauffmann" target="_blank">
+                <GitHubIcon style={{ fontSize: 50, color: "white" }} />
               </a>
+
               <a
-                href="https://www.instagram.com/generationbrasil/"
-                target="_blank"
-              >
-                <InstagramIcon style={{ fontSize: 60, color: "white" }} />
-              </a>
-              <a
-                href="https://www.linkedin.com/school/generationbrasil/"
+                href="https://www.linkedin.com/in/christine-outi-kauffmann/"
                 target="_blank"
               >
                 <LinkedInIcon style={{ fontSize: 60, color: "white" }} />

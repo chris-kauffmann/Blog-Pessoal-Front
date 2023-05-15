@@ -1,4 +1,12 @@
 .titulo {
-  color: aliceblue;
   text-align: center;
+}
+.outlinedButton {
+  border-color: #928686 !important;
+  color: #fcfcfc !important;
+}
+
+.outlinedButton:hover {
+  background-color: #333232 !important;
+  color: #f4f5f8 !important;
 }
