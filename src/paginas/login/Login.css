@@ -1,0 +1,25 @@
+.text-decorator-none {
+  text-decoration: none;
+}
+.outlinedButtonL {
+  border-color: #c0a5df !important;
+  color: #fcfcfc !important;
+}
+
+.outlinedButtonL:hover {
+  background-color: #5d4775 !important;
+  color: #fdfcfd !important;
+}
+
+.textosL {
+  font-weight: bold !important;
+}
+
+.imagem {
+  background-image: url(https://media3.giphy.com/media/xUOwG3rLN3nzO7XAMU/giphy.gif?cid=ecf05e47ekg4va3duc3k2qzqy5omlp8qivtgp5bewryn8p1v&ep=v1_gifs_related&rid=giphy.gif&ct=g);
+  background-repeat: no-repeat;
+  width: 100vh;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}

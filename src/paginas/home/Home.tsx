@@ -13,7 +13,7 @@ function Home() {
           direction="row"
           justifyContent="center"
           alignItems="center"
-          style={{ backgroundColor: "white" }}
+          className="caixa"
         >
           <Grid alignItems="center" item xs={6}>
             <Box paddingX={20}>
@@ -23,7 +23,7 @@ function Home() {
                 color="textPrimary"
                 component="h3"
                 align="center"
-                style={{ color: "black", fontWeight: "bold" }}
+                className="titulo"
               >
                 Seja bem vindo(a)!
               </Typography>
@@ -33,22 +33,14 @@ function Home() {
                 color="textPrimary"
                 component="h5"
                 align="center"
-                style={{ color: "black", fontWeight: "bold" }}
+                className="titulo"
               >
                 expresse aqui os seus pensamentos e opiniões!
               </Typography>
             </Box>
             <Box display="flex" justifyContent="center">
               <Box marginRight={1}></Box>
-              <Button
-                className="outlinedButton"
-                variant="contained"
-                style={{
-                  borderColor: "white",
-                  backgroundColor: "black",
-                  color: "white",
-                }}
-              >
+              <Button className="outlinedButton" variant="contained">
                 Ver Postagens
               </Button>
             </Box>
@@ -61,7 +53,7 @@ function Home() {
               height="400px"
             />
           </Grid>
-          <Grid xs={12} style={{ backgroundColor: "black" }}></Grid>
+          <Grid xs={12} className="postagens"></Grid>
         </Grid>
       </>
     </>

@@ -1,12 +1,22 @@
 .titulo {
-  text-align: center;
+  color: black;
+  font-weight: "bold";
 }
 .outlinedButton {
-  border-color: #928686 !important;
+  border-color: white !important;
+  background-color: black !important;
   color: #fcfcfc !important;
 }
 
 .outlinedButton:hover {
   background-color: #333232 !important;
   color: #f4f5f8 !important;
+}
+
+.caixa {
+  background-color: white;
+}
+
+.postagens {
+  background-color: black;
 }
