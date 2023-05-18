@@ -6,3 +6,7 @@
 .text-decorator-none {
   text-decoration: none;
 }
+
+.cursor:hover {
+  color: rgb(160, 106, 173);
+}

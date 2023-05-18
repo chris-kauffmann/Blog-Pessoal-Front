@@ -12,18 +12,21 @@ function Navbar() {
       <AppBar position="static" style={{ backgroundColor: "black" }}>
         <Toolbar variant="dense">
           <Grid container justifyContent={"space-between"}>
-            <Box className="cursor">
+            <Box>
               <Typography variant="h5" color="inherit">
                 Blog Pessoal
               </Typography>
             </Box>
 
             <Box display="flex" justifyContent="start">
-              <Box mx={1} className="cursor">
-                <Typography variant="h6" color="inherit">
-                  Home
-                </Typography>
-              </Box>
+              <Link to="/home" className="text-decorator-none">
+                <Box mx={1} className="cursor">
+                  <Typography variant="h6" color="inherit">
+                    Home
+                  </Typography>
+                </Box>
+              </Link>
+
               <Box mx={1} className="cursor">
                 <Typography variant="h6" color="inherit">
                   Postagens
@@ -42,7 +45,7 @@ function Navbar() {
               <Link to="/login" className="text-decorator-none">
                 <Box mx={1} className="cursor">
                   <Typography variant="h6" color="inherit">
-                    logout
+                    Logout
                   </Typography>
                 </Box>
               </Link>

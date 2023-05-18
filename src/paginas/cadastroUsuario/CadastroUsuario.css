@@ -1,0 +1,16 @@
+.imagem2 {
+  background-image: url("https://ik.imagekit.io/eou8tor4u/colagem-criativa-do-planeta-marte-com-astronauta.jpg?updatedAt=1684427037067");
+  background-repeat: no-repeat;
+  width: 100vh;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.textoC {
+  font-weight: bold !important;
+}
+
+.btnCancelar {
+  margin-right: 20px !important;
+}
