@@ -1,0 +1,16 @@
+.titulo {
+  font-weight: bold !important;
+}
+
+.tabBg {
+  background-color: black !important;
+}
+
+.boxPostagem {
+  background-color: #222020 !important;
+  background-image: url("https://ik.imagekit.io/eou8tor4u/galaxy-3608029_1920.jpg?updatedAt=1684516053868");
+}
+
+.texto {
+  color: azure !important;
+}

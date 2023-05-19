@@ -1,7 +1,6 @@
-import React from "react";
 import { Grid, Typography, Button } from "@material-ui/core";
 import { Box } from "@mui/material";
-
+import TabPostagem from "../../components/estaticos/postagens/tabpostagem/TabPostagem";
 import "./Home.css";
 
 /*function para criar o componente inicial home */
@@ -14,14 +13,14 @@ function Home() {
           direction="row"
           justifyContent="center"
           alignItems="center"
-          className="caixa"
+          className="bgHome"
         >
-          <Grid alignItems="center" item xs={6}>
+          <Grid alignItems="center" xs={6}>
             <Box paddingX={20}>
               <Typography
                 variant="h3"
                 gutterBottom
-                color="textPrimary"
+                color="initial"
                 component="h3"
                 align="center"
                 className="titulo"
@@ -48,13 +47,15 @@ function Home() {
           </Grid>
           <Grid item xs={5} style={{ margin: "10px" }}>
             <img
-              src="https://media1.giphy.com/media/3ohzAN9PzGgxpQaiM8/giphy.gif?cid=ecf05e47dwe8yn1bxa75fivuit2wx6ickspgfjasgxmf1hd8&ep=v1_gifs_related&rid=giphy.gif&ct=g"
+              src="https://ik.imagekit.io/eou8tor4u/pngfind.com-astronaut-helmet-png-111386.png?updatedAt=1684516896244"
               alt=""
-              width="600px"
+              width="400px"
               height="400px"
             />
           </Grid>
-          <Grid xs={12} className="postagens"></Grid>
+          <Grid xs={12} className="postagens">
+            <TabPostagem></TabPostagem>
+          </Grid>
         </Grid>
       </>
     </>

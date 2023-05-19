@@ -13,7 +13,7 @@ function Navbar() {
         <Toolbar variant="dense">
           <Grid container justifyContent={"space-between"}>
             <Box>
-              <Typography variant="h5" color="inherit">
+              <Typography variant="h5" color="white">
                 Blog Pessoal
               </Typography>
             </Box>

@@ -45,7 +45,6 @@ function Login() {
   return (
     <Grid
       container
-      direction="row"
       justifyContent="center"
       alignItems="center"
       className="imagem"

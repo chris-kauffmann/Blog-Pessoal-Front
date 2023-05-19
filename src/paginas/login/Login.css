@@ -19,11 +19,7 @@
   background-image: url("https://ik.imagekit.io/eou8tor4u/galaxia-noturna.jpg?updatedAt=1684432785469");
   background-repeat: no-repeat;
   width: 100vw;
-
-  /* calc é uma função que irá calcular e retornar um valor */
-  min-height: calc(
-    100vh - 48px
-  ); /* 100vh - 48px que é a altura do NavBar/Menu */
+  min-height: 100vh;
   background-size: cover;
   background-position: center;
 }

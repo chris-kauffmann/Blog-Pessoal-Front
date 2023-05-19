@@ -1,0 +1,13 @@
+.text-decorator-none {
+  text-decoration: none;
+}
+
+.outlinedButtonP {
+  border-color: #c0a5df !important;
+  color: #fcfcfc !important;
+}
+
+.outlinedButtonP:hover {
+  background-color: #5d4775 !important;
+  color: #fdfcfd !important;
+}
