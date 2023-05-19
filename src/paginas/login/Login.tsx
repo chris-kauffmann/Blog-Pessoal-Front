@@ -13,9 +13,9 @@ function Login() {
 
   const [userLogin, setUserLogin] = useState<UserLogin>({
     id: 0,
-    usuario: " ",
-    senha: " ",
-    token: " ",
+    usuario: "",
+    senha: "",
+    token: "",
   });
 
   function updatedModel(e: ChangeEvent<HTMLInputElement>) {
@@ -43,9 +43,15 @@ function Login() {
   }
 
   return (
-    <Grid container direction="row" justifyContent="center" alignItems="center">
-      <Grid alignItems="center" xs={6}>
-        <Box paddingX={20}>
+    <Grid
+      container
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      className="imagem"
+    >
+      <Grid alignItems="center">
+        <Box className="card">
           <form onSubmit={onSubmit}>
             <Typography
               variant="h3"
@@ -61,7 +67,7 @@ function Login() {
               value={userLogin.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               id="usuario"
-              label="usuário"
+              label="usuario"
               variant="outlined"
               name="usuario"
               margin="normal"
@@ -114,7 +120,6 @@ function Login() {
           </Box>
         </Box>
       </Grid>
-      <Grid xs={6} className="imagem"></Grid>
     </Grid>
   );
 }

@@ -9,12 +9,12 @@
 }
 
 .outlinedButton:hover {
-  background-color: #333232 !important;
+  background-color: #5d4775 !important;
   color: #f4f5f8 !important;
 }
 
 .caixa {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
 }
 
 .postagens {
