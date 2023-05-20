@@ -14,12 +14,14 @@ function CadastroUsuario() {
     id: 0,
     nome: "",
     usuario: "",
+    foto: "",
     senha: "",
   });
   const [userResult, setUserResult] = useState<User>({
     id: 0,
     nome: "",
     usuario: "",
+    foto: "",
     senha: "",
   });
   useEffect(() => {
@@ -49,10 +51,14 @@ function CadastroUsuario() {
     }
   }
   return (
-    <Grid container direction="row" justifyContent="center" alignItems="center">
-      <Grid item xs={6} className="imagem2"></Grid>
-      <Grid item xs={6} alignItems="center">
-        <Box paddingX={10}>
+    <Grid
+      container
+      justifyContent="center"
+      alignItems="center"
+      className="imagem2"
+    >
+      <Grid alignItems="center">
+        <Box className="card">
           <form onSubmit={onSubmit}>
             <Typography
               variant="h3"
@@ -60,27 +66,37 @@ function CadastroUsuario() {
               color="textPrimary"
               component="h3"
               align="center"
-              className="textoC"
+              className="textosL"
             >
               Cadastrar
             </Typography>
             <TextField
+              value={user.usuario}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+              id="usuario"
+              label="Digite seu e-mail"
+              variant="outlined"
+              name="usuario"
+              margin="normal"
+              fullWidth
+            />
+            <TextField
               value={user.nome}
               onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               id="nome"
-              label="Nome"
+              label="Digite seu nome"
               variant="outlined"
               name="nome"
               margin="normal"
               fullWidth
             />
             <TextField
-              value={user.usuario}
+              value={user.foto}
               onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-              id="usuario"
-              label="Usuário"
+              id="foto"
+              label="URL da foto"
               variant="outlined"
-              name="usuario"
+              name="foto"
               margin="normal"
               fullWidth
             />
@@ -88,7 +104,7 @@ function CadastroUsuario() {
               value={user.senha}
               onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               id="senha"
-              label="Senha"
+              label="Digite uma senha com no minimo 8 caracteres"
               variant="outlined"
               name="senha"
               margin="normal"
@@ -139,6 +155,24 @@ function CadastroUsuario() {
               </Button>
             </Box>
           </form>
+          <Box display="flex" justifyContent="center" marginTop={2}>
+            <Box marginRight={1}>
+              <Typography variant="subtitle1" gutterBottom align="center">
+                Já tem uma conta?
+              </Typography>
+            </Box>
+            <Link to="/login">
+              <Typography
+                variant="subtitle1"
+                gutterBottom
+                align="center"
+                className="textosL text-decorator-none"
+              >
+                {" "}
+                Clique aqui para logar
+              </Typography>
+            </Link>
+          </Box>
         </Box>
       </Grid>
     </Grid>

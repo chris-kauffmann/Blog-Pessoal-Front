@@ -13,7 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <div style={{ minHeight: "100vh" }}>
+      <div style={{ minHeight: "70vh" }}>
         <Routes>
           {" "}
           // Antigo Switch
