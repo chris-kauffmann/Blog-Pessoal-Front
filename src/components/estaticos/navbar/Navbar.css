@@ -1,12 +1,13 @@
 .cursor {
   cursor: pointer;
-  color: white;
+  color: white !important
+  ;
 }
 
 .text-decorator-none {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .cursor:hover {
-  color: rgb(160, 106, 173);
+  color: rgb(160, 106, 173) !important;
 }

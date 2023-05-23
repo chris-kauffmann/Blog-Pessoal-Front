@@ -2,9 +2,23 @@ import { Grid, Typography, Button } from "@material-ui/core";
 import { Box } from "@mui/material";
 import TabPostagem from "../../components/estaticos/postagens/tabpostagem/TabPostagem";
 import "./Home.css";
+import ModalPostagem from "../../components/estaticos/postagens/modalPostagem/ModalPostagem";
+import { useNavigate } from "react-router-dom";
+import useLocalStorage from "react-use-localstorage";
+import { useEffect } from "react";
 
 /*function para criar o componente inicial home */
 function Home() {
+  let history = useNavigate();
+  const [token, setToken] = useLocalStorage("token");
+
+  useEffect(() => {
+    if (token == "") {
+      alert("Você precisar estar logado");
+      history("/login");
+    }
+  }, [token]);
+
   return (
     <>
       <>
@@ -35,11 +49,13 @@ function Home() {
                 align="center"
                 className="titulo"
               >
-                expresse aqui os seus pensamentos e opiniões!
+                Expresse aqui os seus pensamentos e opiniões!
               </Typography>
             </Box>
             <Box display="flex" justifyContent="center">
-              <Box marginRight={1}></Box>
+              <Box marginRight={1}>
+                <ModalPostagem />
+              </Box>
               <Button className="outlinedButton" variant="contained">
                 Ver Postagens
               </Button>
