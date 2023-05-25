@@ -30,3 +30,7 @@
   width: 100vw;
   min-height: 100vh;
 }
+
+.text-decorator-none {
+  text-decoration: none;
+}

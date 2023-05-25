@@ -12,17 +12,21 @@ import {
 } from "@material-ui/core";
 import "./CadastroPost.css";
 import { useNavigate, useParams } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
+
 import Tema from "../../../../models/Tema";
 import Postagem from "../../../../models/Postagem";
+import User from "../../../../models/User";
 import { busca, buscaId, post, put } from "../../../../services/Service";
-import { Box } from "@mui/material";
+import { useSelector } from "react-redux";
+import { TokenState } from "../../../../store/tokens/tokensReducer";
 
 function CadastroPost() {
   let history = useNavigate();
   const { id } = useParams<{ id: string }>();
   const [temas, setTemas] = useState<Tema[]>([]);
-  const [token, setToken] = useLocalStorage("token");
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
 
   useEffect(() => {
     if (token == "") {
@@ -40,12 +44,26 @@ function CadastroPost() {
     titulo: "",
     texto: "",
     tema: null,
+    usuario: null, //linha para inserir o usuario dono da postagem
+  });
+
+  //buscar o Id dentro do Redux
+  const userId = useSelector<TokenState, TokenState["id"]>((state) => state.id);
+
+  //state que controla o usuário que será inserido na postagem
+  const [usuario, setUsuario] = useState<User>({
+    id: +userId, //Ao colocar o sinal de + no começo de uma variável de texto, fazemos a conversão da mesma para um número
+    nome: "",
+    usuario: "",
+    senha: "",
+    foto: "",
   });
 
   useEffect(() => {
     setPostagem({
       ...postagem,
       tema: tema,
+      usuario: usuario, //adc o usuario dentro da postagem q está sendo enviada para o backend
     });
   }, [tema]);
 

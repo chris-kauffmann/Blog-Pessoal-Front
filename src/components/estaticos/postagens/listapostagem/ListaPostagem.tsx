@@ -10,13 +10,17 @@ import { Box, CardMedia } from "@mui/material";
 import "./ListaPostagem.css";
 import { useEffect, useState } from "react";
 import Postagem from "../../../../models/Postagem";
-import useLocalStorage from "react-use-localstorage";
 import { busca } from "../../../../services/Service";
+import { TokenState } from "../../../../store/tokens/tokensReducer";
+import { useSelector } from "react-redux";
 
 function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([]);
-  const [token, setToken] = useLocalStorage("token");
+
   let history = useNavigate();
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
 
   useEffect(() => {
     if (token == "") {
@@ -45,12 +49,15 @@ function ListaPostagem() {
             <CardMedia
               component="img"
               height="140"
-              src="https://ik.imagekit.io/eou8tor4u/orion-nebula-11107_1280.jpg?updatedAt=1684508815643"
+              src="https://ik.imagekit.io/eou8tor4u/space-4641363_1280.jpg?updatedAt=1685043351951"
               alt="nebulosa Orion"
             />
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
                 Postagens
+              </Typography>
+              <Typography variant="body2" component="p">
+                Postado por: {post.usuario?.nome}
               </Typography>
               <Typography variant="h5" component="h2">
                 {post.titulo}

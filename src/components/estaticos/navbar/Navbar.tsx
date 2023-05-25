@@ -5,19 +5,27 @@ import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import useLocalStorage from "react-use-localstorage";
+
+import { useDispatch, useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/tokensReducer";
+import { addToken } from "../../../store/tokens/actions";
 
 function Navbar() {
-  const [token, setToken] = useLocalStorage("token");
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
   let history = useNavigate();
+  const dispatch = useDispatch();
 
   function goLogout() {
-    setToken("");
+    dispatch(addToken(""));
     alert("Usuário deslogado");
     history("/login");
   }
-  return (
-    <>
+  var navbarComponent;
+
+  if (token !== "") {
+    navbarComponent = (
       <AppBar position="static" style={{ backgroundColor: "black" }}>
         <Toolbar variant="dense">
           <Grid container justifyContent={"space-between"}>
@@ -61,6 +69,13 @@ function Navbar() {
                   </Typography>
                 </Link>
               </Box>
+              <Box mx={1}>
+                <Link to="/perfil" className=" cursor text-decorator-none">
+                  <Typography variant="h6" color="white" className="cursor">
+                    Perfil
+                  </Typography>
+                </Link>
+              </Box>
 
               <Box
                 mx={1}
@@ -75,7 +90,8 @@ function Navbar() {
           </Grid>
         </Toolbar>
       </AppBar>
-    </>
-  );
+    );
+  }
+  return <>{navbarComponent}</>;
 }
 export default Navbar;

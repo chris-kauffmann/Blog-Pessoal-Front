@@ -10,13 +10,20 @@ import {
 import { Box } from "@mui/material";
 import "./ListaTema.css";
 import Tema from "../../../models/Tema";
-import useLocalStorage from "react-use-localstorage";
+
 import { busca } from "../../../services/Service";
+import { useDispatch, useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/tokensReducer";
+import { addToken } from "../../../store/tokens/actions";
 
 function ListaTema() {
   const [temas, setTemas] = useState<Tema[]>([]);
-  const [token, setToken] = useLocalStorage("token");
+
   let history = useNavigate();
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
+  const dispatch = useDispatch();
 
   async function getTemas() {
     // alterado a função pra dentro de um try catch, para poder verificar a validade do token do usuário
@@ -32,7 +39,7 @@ function ListaTema() {
       // significa que o token já expirou. Iremos alertar o usuário sobre isso, apagar o token do navegador, e levá-lo para a tela de login
       if (error.toString().includes("403")) {
         alert("O seu token expirou, logue novamente");
-        setToken("");
+        dispatch(addToken(""));
         history("/login");
       }
     }
