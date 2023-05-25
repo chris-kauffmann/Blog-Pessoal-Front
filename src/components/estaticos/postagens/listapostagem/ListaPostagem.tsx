@@ -6,7 +6,7 @@ import {
   Button,
   Typography,
 } from "@material-ui/core";
-import { Box } from "@mui/material";
+import { Box, CardMedia } from "@mui/material";
 import "./ListaPostagem.css";
 import { useEffect, useState } from "react";
 import Postagem from "../../../../models/Postagem";
@@ -40,8 +40,14 @@ function ListaPostagem() {
   return (
     <>
       {posts.map((post) => (
-        <Box m={2}>
+        <Box m={4} sx={{ display: "inline-block", mx: "10px", maxWidth: 345 }}>
           <Card variant="outlined">
+            <CardMedia
+              component="img"
+              height="140"
+              src="https://ik.imagekit.io/eou8tor4u/orion-nebula-11107_1280.jpg?updatedAt=1684508815643"
+              alt="nebulosa Orion"
+            />
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
                 Postagens
@@ -60,7 +66,7 @@ function ListaPostagem() {
               <Box display="flex" justifyContent="center" mb={1.5}>
                 <Link
                   to={`/formularioPostagem/${post.id}`}
-                  className="text-decorator-none"
+                  className="text-decorator-none "
                 >
                   <Box mx={1}>
                     <Button

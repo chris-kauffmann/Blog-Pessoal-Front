@@ -67,14 +67,9 @@ function CadastroTema() {
     history("/temas");
   }
   return (
-    <Container maxWidth="sm" className="topo">
+    <Container maxWidth="sm" className="topo cardTema">
       <form onSubmit={onSubmit}>
-        <Typography
-          variant="h3"
-          color="textSecondary"
-          component="h1"
-          align="center"
-        >
+        <Typography variant="h3" color="initial" component="h1" align="center">
           Formulário de cadastro tema
         </Typography>
         <TextField
@@ -87,7 +82,16 @@ function CadastroTema() {
           margin="normal"
           fullWidth
         />
-        <Button type="submit" variant="contained" color="primary">
+        <Button
+          type="submit"
+          variant="contained"
+          className="outlinedButtonT"
+          style={{
+            borderColor: "white",
+            backgroundColor: "black",
+            color: "white",
+          }}
+        >
           Finalizar
         </Button>
       </form>

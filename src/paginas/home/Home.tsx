@@ -69,7 +69,7 @@ function Home() {
               height="400px"
             />
           </Grid>
-          <Grid xs={12} className="postagens">
+          <Grid xs={12}>
             <TabPostagem></TabPostagem>
           </Grid>
         </Grid>

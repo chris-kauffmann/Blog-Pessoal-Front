@@ -44,8 +44,12 @@ function ModalPostagem() {
   };
 
   const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <Box display="flex" justifyContent="flex-end" className="cursor">
+    <div>
+      <Box
+        display="flex"
+        justifyContent="flex-end"
+        className="cursor card3 margem"
+      >
         <CloseIcon onClick={handleClose} />
       </Box>
 
@@ -55,7 +59,11 @@ function ModalPostagem() {
 
   return (
     <div>
-      <Button variant="outlined" className="btnModal" onClick={handleOpen}>
+      <Button
+        variant="contained"
+        className="outlinedButtonP"
+        onClick={handleOpen}
+      >
         Nova Postagem
       </Button>
       <Modal

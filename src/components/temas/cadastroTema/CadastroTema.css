@@ -1,3 +1,10 @@
 .topo {
   margin-top: 20px;
 }
+
+.cardTema {
+  border-radius: 20px;
+  background: linear-gradient(93deg, #c5aef090 8%, #d8cddb90 89%);
+  padding: 2rem;
+  width: max(20vw, 300px);
+}

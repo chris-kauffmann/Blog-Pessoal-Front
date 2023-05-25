@@ -17,11 +17,16 @@
   background-color: rgb(255, 255, 255);
 } */
 
-.postagens {
+/* .postagens {
   background-color: black;
-}
+} */
 
 .bgHome {
   background-color: #222020 !important;
   background-image: url("https://ik.imagekit.io/eou8tor4u/galaxy-3608029_1920.jpg?updatedAt=1684516053868");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  min-height: 100vh;
 }

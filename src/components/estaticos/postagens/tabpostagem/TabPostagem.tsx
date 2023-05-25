@@ -13,25 +13,25 @@ function TabPostagem() {
   return (
     <>
       <TabContext value={value}>
-        <AppBar position="static" className="tabBg">
+        <AppBar position="static" className="tabBg ">
           <Tabs centered onChange={handleChange}>
-            <Tab label="Todas as postagens" value="1" />
-            <Tab label="Sobre-nós" value="2" />
+            <Tab label="Todas as postagens" value="1" className="cursor" />
+            <Tab label="Sobre-nós" value="2" className="cursor" />
           </Tabs>
         </AppBar>
-        <TabPanel value="1" className="boxPostagem">
+        <TabPanel value="1">
           <Box display="flex" flexWrap="wrap" justifyContent="center">
             <ListaPostagem />
           </Box>
         </TabPanel>
-        <TabPanel value="2" className="boxPostagem">
+        <TabPanel value="2">
           <Typography
             variant="h5"
             gutterBottom
             color="textPrimary"
             component="h5"
             align="center"
-            className="titulo"
+            className="titulo "
           >
             Sobre-nós
           </Typography>

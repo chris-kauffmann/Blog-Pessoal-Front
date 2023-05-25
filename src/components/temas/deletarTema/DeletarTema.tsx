@@ -60,8 +60,8 @@ function DeletarTema() {
         <Card variant="outlined">
           <CardContent>
             <Box justifyContent="center">
-              <Typography color="textSecondary" gutterBottom>
-                Deseja deletar o Tema:
+              <Typography color="inherit" gutterBottom>
+                Deseja deletar o Tema?
               </Typography>
               <Typography color="textSecondary">{tema?.descricao}</Typography>
             </Box>
@@ -72,9 +72,13 @@ function DeletarTema() {
                 <Button
                   onClick={sim}
                   variant="contained"
-                  className="marginLeft"
+                  className="marginLeft outlinedButtonT"
                   size="large"
-                  color="primary"
+                  style={{
+                    borderColor: "white",
+                    backgroundColor: "black",
+                    color: "white",
+                  }}
                 >
                   Sim
                 </Button>
@@ -84,7 +88,12 @@ function DeletarTema() {
                   onClick={nao}
                   variant="contained"
                   size="large"
-                  color="secondary"
+                  className="outlinedButtonT"
+                  style={{
+                    borderColor: "white",
+                    backgroundColor: "black",
+                    color: "white",
+                  }}
                 >
                   Não
                 </Button>

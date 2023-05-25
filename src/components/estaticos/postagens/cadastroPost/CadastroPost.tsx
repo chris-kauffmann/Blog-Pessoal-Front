@@ -16,6 +16,7 @@ import useLocalStorage from "react-use-localstorage";
 import Tema from "../../../../models/Tema";
 import Postagem from "../../../../models/Postagem";
 import { busca, buscaId, post, put } from "../../../../services/Service";
+import { Box } from "@mui/material";
 
 function CadastroPost() {
   let history = useNavigate();
@@ -56,7 +57,7 @@ function CadastroPost() {
   }, [id]);
 
   async function getTemas() {
-    await busca("/tema", setTemas, {
+    await busca("/temas", setTemas, {
       headers: {
         Authorization: token,
       },
@@ -105,15 +106,15 @@ function CadastroPost() {
   }
 
   return (
-    <Container maxWidth="sm" className="topo">
+    <Container maxWidth="sm" className="card1">
       <form onSubmit={onSubmit}>
         <Typography
           variant="h3"
-          color="textSecondary"
+          style={{ color: "black" }}
           component="h1"
           align="center"
         >
-          Formulário de cadastro postagem
+          Formulário de cadastro de postagem
         </Typography>
         <TextField
           value={postagem.titulo}
@@ -123,6 +124,7 @@ function CadastroPost() {
           variant="outlined"
           name="titulo"
           margin="normal"
+          className="custom-txfield"
           fullWidth
         />
         <TextField
@@ -133,16 +135,23 @@ function CadastroPost() {
           name="texto"
           variant="outlined"
           margin="normal"
+          className="custom-txfield"
           fullWidth
         />
 
         <FormControl>
-          <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
+          <InputLabel
+            id="demo-simple-select-helper-label"
+            className="custom-txfield"
+          >
+            Tema{" "}
+          </InputLabel>
           <Select
             labelId="demo-simple-select-helper-label"
             id="demo-simple-select-helper"
+            className="custom-txfield"
             onChange={(e) =>
-              buscaId(`/tema/${e.target.value}`, setTema, {
+              buscaId(`/temas/${e.target.value}`, setTema, {
                 headers: {
                   Authorization: token,
                 },
@@ -153,8 +162,15 @@ function CadastroPost() {
               <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
             ))}
           </Select>
-          <FormHelperText>Escolha um tema para a postagem</FormHelperText>
-          <Button type="submit" variant="contained" color="primary">
+          <FormHelperText className="custom-txfield">
+            Escolha um tema para a postagem
+          </FormHelperText>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            className="outlinedButtonF"
+          >
             Finalizar
           </Button>
         </FormControl>

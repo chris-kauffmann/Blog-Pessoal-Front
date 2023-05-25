@@ -1,3 +1,31 @@
-.topo {
+/* .topo {
   margin-top: 20px;
+} */
+
+.bgForm {
+  background-image: url("https://ik.imagekit.io/eou8tor4u/galaxy-3608029_1920.jpg?updatedAt=1684516053868");
+  background-size: cover;
+}
+
+.outlinedButtonF {
+  border-color: white !important;
+  background-color: black !important;
+  color: #fcfcfc !important;
+}
+
+.outlinedButtonF:hover {
+  background-color: #5d4775 !important;
+  color: #f4f5f8 !important;
+}
+
+.card1 {
+  align-items: center;
+  border-radius: 20px;
+  background: linear-gradient(93deg, #ffffff90 8%, #fffdff90 89%);
+  padding: 3rem;
+  width: max(20vw, 300px);
+}
+
+.custom-txfield label {
+  color: rgb(0, 0, 0) !important;
 }

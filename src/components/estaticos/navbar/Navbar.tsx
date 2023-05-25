@@ -14,7 +14,7 @@ function Navbar() {
   function goLogout() {
     setToken("");
     alert("Usuário deslogado");
-    history(".login");
+    history("/login");
   }
   return (
     <>
@@ -36,27 +36,27 @@ function Navbar() {
                 </Box>
               </Link>
 
-              <Box mx={1} className="cursor">
-                <Link to="/posts" className="text-decorator-none">
-                  <Typography variant="h6" color="white">
+              <Box mx={1}>
+                <Link to="/posts" className="text-decorator-none ">
+                  <Typography variant="h6" color="white" className="cursor">
                     Postagens
                   </Typography>
                 </Link>
               </Box>
 
-              <Box mx={1} className="cursor">
+              <Box mx={1}>
                 <Link to="/temas" className="text-decorator-none">
-                  <Typography variant="h6" color="white">
+                  <Typography variant="h6" color="white" className="cursor">
                     Temas
                   </Typography>
                 </Link>
               </Box>
-              <Box mx={1} className="">
+              <Box mx={1}>
                 <Link
                   to="/formularioTema"
                   className=" cursor text-decorator-none"
                 >
-                  <Typography variant="h6" color="white">
+                  <Typography variant="h6" color="white" className="cursor">
                     Cadastrar Tema
                   </Typography>
                 </Link>
