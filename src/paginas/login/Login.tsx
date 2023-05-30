@@ -2,13 +2,12 @@ import React, { useState, ChangeEvent, useEffect } from "react";
 import { Grid, TextField, Typography, Button } from "@material-ui/core";
 import { Box } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-
 import { login } from "../../services/Service";
 import UserLogin from "../../models/UserLogin";
-
 import "./Login.css";
 import { useDispatch } from "react-redux";
 import { addId, addToken } from "../../store/tokens/actions";
+import { toast } from "react-toastify";
 
 function Login() {
   let history = useNavigate();
@@ -52,9 +51,27 @@ function Login() {
     try {
       await login(`/usuarios/logar`, userLogin, setRespUserLogin);
 
-      alert("Usuário logado com sucesso!!");
+      toast.success("Usuário logado com sucesso", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
     } catch (error) {
-      alert("Dados do usuário inconsistentes. Erro ao logar!!");
+      toast.error("Dados do usuário inconsistentes. Erro ao logar", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
     }
   }
 
@@ -108,18 +125,16 @@ function Login() {
               fullWidth
             />
             <Box marginTop={2} textAlign="center">
-              <Button
-                className="outlinedButtonL"
-                type="submit"
-                variant="contained"
-                color="primary"
-                style={{
-                  borderColor: "white",
-                  backgroundColor: "black",
-                  color: "white",
-                }}
-              >
-                Logar
+              <Button className="btn" type="submit">
+                <strong>Login</strong>
+                <div id="container-stars">
+                  <div id="stars"></div>
+                </div>
+
+                <div id="glow">
+                  <div className="circle"></div>
+                  <div className="circle"></div>
+                </div>
               </Button>
             </Box>
           </form>

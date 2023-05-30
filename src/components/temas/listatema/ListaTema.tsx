@@ -10,7 +10,7 @@ import {
 import { Box } from "@mui/material";
 import "./ListaTema.css";
 import Tema from "../../../models/Tema";
-
+import { toast } from "react-toastify";
 import { busca } from "../../../services/Service";
 import { useDispatch, useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
@@ -38,7 +38,16 @@ function ListaTema() {
       // a parte do catch, vai receber qlquer mensagem de erro que chegue, e caso a mensagem tenha um 403 no seu texto
       // significa que o token já expirou. Iremos alertar o usuário sobre isso, apagar o token do navegador, e levá-lo para a tela de login
       if (error.toString().includes("403")) {
-        alert("O seu token expirou, logue novamente");
+        toast.error("Seu token expirou, logue novamente", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          theme: "colored",
+          progress: undefined,
+        });
         dispatch(addToken(""));
         history("/login");
       }
@@ -47,7 +56,16 @@ function ListaTema() {
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado");
+      toast.error("Você precisa estar logado", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
       history("/login");
     }
   }, [token]);
@@ -65,6 +83,27 @@ function ListaTema() {
   }, [temas.length]);
   return (
     <>
+      {/* criando um if ternário para exibir um loader de carregamento enquanto os temas não chegam do backend 
+     na primeira linha, temos a condição do if */}
+      {temas.length === 0 ? (
+        // com o sinal de interrogação, fazemos a saida padrão do if, para caso a condição seja verdadeira//
+        <div className="alinhamento">
+          <div data-js="astro" className="astronaut">
+            <div className="head"></div>
+            <div className="arm arm-left"></div>
+            <div className="arm arm-right"></div>
+            <div className="body">
+              <div className="panel"></div>
+            </div>
+            <div className="leg leg-left"></div>
+            <div className="leg leg-right"></div>
+            <div className="schoolbag"></div>
+          </div>
+        </div>
+      ) : (
+        // o dois pontos (:) representa o ELSE de um if padrão, e colocamos a saida para caso a condição seja falsa. Nesse caso, exibir nada
+        <></>
+      )}
       {temas.map((tema) => (
         <Box m={4} sx={{ display: "inline-block", mx: "6px", maxWidth: 345 }}>
           <Card variant="outlined">

@@ -13,6 +13,7 @@ import Postagem from "../../../../models/Postagem";
 import { busca } from "../../../../services/Service";
 import { TokenState } from "../../../../store/tokens/tokensReducer";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([]);
@@ -24,7 +25,16 @@ function ListaPostagem() {
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado");
+      toast.error("Você precisa estar logado", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
       history("/login");
     }
   }, [token]);
@@ -43,6 +53,27 @@ function ListaPostagem() {
 
   return (
     <>
+      {/* criando um if ternário para exibir um loader de carregamento enquanto os temas não chegam do backend 
+     na primeira linha, temos a condição do if */}
+      {posts.length === 0 ? (
+        // com o sinal de interrogação, fazemos a saida padrão do if, para caso a condição seja verdadeira//
+        <div className="alinhamento">
+          <div data-js="astro" className="astronaut">
+            <div className="head"></div>
+            <div className="arm arm-left"></div>
+            <div className="arm arm-right"></div>
+            <div className="body">
+              <div className="panel"></div>
+            </div>
+            <div className="leg leg-left"></div>
+            <div className="leg leg-right"></div>
+            <div className="schoolbag"></div>
+          </div>
+        </div>
+      ) : (
+        // o dois pontos (:) representa o ELSE de um if padrão, e colocamos a saida para caso a condição seja falsa. Nesse caso, exibir nada
+        <></>
+      )}
       {posts.map((post) => (
         <Box m={4} sx={{ display: "inline-block", mx: "10px", maxWidth: 345 }}>
           <Card variant="outlined">

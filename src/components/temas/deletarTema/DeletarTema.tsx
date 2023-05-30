@@ -6,10 +6,10 @@ import {
   Button,
   Typography,
 } from "@material-ui/core";
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import "./DeletarTema.css";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { toast } from "react-toastify";
 import { buscaId, deleteId } from "../../../services/Service";
 import Tema from "../../../models/Tema";
 import { useSelector } from "react-redux";
@@ -25,7 +25,16 @@ function DeletarTema() {
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado");
+      toast.error("Você precisa estar logado", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
       history("/login");
     }
   }, [token]);
@@ -37,7 +46,7 @@ function DeletarTema() {
   }, [id]);
 
   async function findById(id: string) {
-    buscaId(`/tema/${id}`, setTema, {
+    buscaId(`/temas/${id}`, setTema, {
       headers: {
         Authorization: token,
       },
@@ -51,7 +60,16 @@ function DeletarTema() {
         Authorization: token,
       },
     });
-    alert("Tema deletado com sucesso");
+    toast.success("Tema deletado com sucesso", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      theme: "colored",
+      progress: undefined,
+    });
   }
 
   function nao() {
@@ -60,52 +78,54 @@ function DeletarTema() {
 
   return (
     <>
-      <Box m={2}>
-        <Card variant="outlined">
-          <CardContent>
-            <Box justifyContent="center">
-              <Typography color="inherit" gutterBottom>
-                Deseja deletar o Tema?
-              </Typography>
-              <Typography color="textSecondary">{tema?.descricao}</Typography>
-            </Box>
-          </CardContent>
-          <CardActions>
-            <Box display="flex" justifyContent="start" ml={1.0} mb={2}>
-              <Box mx={2}>
-                <Button
-                  onClick={sim}
-                  variant="contained"
-                  className="marginLeft outlinedButtonT"
-                  size="large"
-                  style={{
-                    borderColor: "white",
-                    backgroundColor: "black",
-                    color: "white",
-                  }}
-                >
-                  Sim
-                </Button>
+      <Grid container justifyContent="center" alignItems="center">
+        <Box m={30}>
+          <Card variant="outlined" className="cardDelTema">
+            <CardContent>
+              <Box justifyContent="center">
+                <Typography color="inherit" gutterBottom>
+                  Deseja deletar o Tema?
+                </Typography>
+                <Typography color="textSecondary">{tema?.descricao}</Typography>
               </Box>
-              <Box mx={2}>
-                <Button
-                  onClick={nao}
-                  variant="contained"
-                  size="large"
-                  className="outlinedButtonT"
-                  style={{
-                    borderColor: "white",
-                    backgroundColor: "black",
-                    color: "white",
-                  }}
-                >
-                  Não
-                </Button>
+            </CardContent>
+            <CardActions>
+              <Box display="flex" justifyContent="start" ml={1.0} mb={1}>
+                <Box mx={1}>
+                  <Button
+                    onClick={sim}
+                    variant="contained"
+                    className="marginLeft outlinedButtonT"
+                    size="large"
+                    style={{
+                      borderColor: "white",
+                      backgroundColor: "black",
+                      color: "white",
+                    }}
+                  >
+                    Sim
+                  </Button>
+                </Box>
+                <Box mx={2}>
+                  <Button
+                    onClick={nao}
+                    variant="contained"
+                    size="large"
+                    className="outlinedButtonT"
+                    style={{
+                      borderColor: "white",
+                      backgroundColor: "black",
+                      color: "white",
+                    }}
+                  >
+                    Não
+                  </Button>
+                </Box>
               </Box>
-            </Box>
-          </CardActions>
-        </Card>
-      </Box>
+            </CardActions>
+          </Card>
+        </Box>
+      </Grid>
     </>
   );
 }

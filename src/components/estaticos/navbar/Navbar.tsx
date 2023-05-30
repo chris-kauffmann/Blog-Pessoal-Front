@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-
+import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
 import { addToken } from "../../../store/tokens/actions";
@@ -19,7 +19,16 @@ function Navbar() {
 
   function goLogout() {
     dispatch(addToken(""));
-    alert("Usuário deslogado");
+    toast.info("Usuário deslogado", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      theme: "colored",
+      progress: undefined,
+    });
     history("/login");
   }
   var navbarComponent;

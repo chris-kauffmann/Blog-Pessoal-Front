@@ -15,10 +15,13 @@ import DeletarTema from "./components/temas/deletarTema/DeletarTema";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import Perfil from "./components/perfil/Perfil";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <Provider store={store}>
+      <ToastContainer />
       <BrowserRouter>
         <Navbar />
         <div style={{ minHeight: "90vh" }}>
