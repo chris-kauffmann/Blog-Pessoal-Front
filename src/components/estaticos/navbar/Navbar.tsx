@@ -40,7 +40,7 @@ function Navbar() {
           <Grid container justifyContent={"space-between"}>
             <Box>
               <Typography variant="h5" color="white">
-                Blog Pessoal
+                Across The Universe
               </Typography>
             </Box>
 

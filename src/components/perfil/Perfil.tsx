@@ -1,5 +1,5 @@
 import { Accordion, Button, Container, TextField } from "@material-ui/core";
-import { Box, Grid } from "@mui/material";
+import { Box, Chip, Divider, Grid } from "@mui/material";
 import { ChangeEvent, useEffect, useState } from "react";
 import User from "../../models/User";
 import "./Perfil.css";
@@ -217,7 +217,12 @@ function Perfil() {
             </Button>
           </form>
           <Grid item borderRadius={2} borderColor={"lightgray"} p={2}>
-            <h3 style={{ textAlign: "center" }}> Suas postagens</h3>
+            <Divider>
+              <h3 style={{ textAlign: "center" }}>
+                <Chip label="Suas Postagens" />
+              </h3>
+            </Divider>
+            {/* <h3 style={{ textAlign: "center" }}> Suas postagens</h3> */}
             <div className="perfilPosts">
               {usuario.postagem?.map((post) => (
                 <Grid
